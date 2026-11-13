@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho | KaTech!</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="topo">
+        <div class="container header-conteudo">
+            <a href="index.html" class="logo">Ka<span>Tech!</span></a>
+            <nav class="menu">
+                <a href="index.html">Início</a>
+                <a href="carrinho.html" class="btn-carrinho-nav">
+                    🛒 Carrinho (<span id="contador-carrinho">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo do Carrinho -->
+    <main class="container pagina-carrinho">
+        <h1 class="titulo-secao">Meu carrinho</h1>
+
+        <!-- Mensagem exibida quando não há itens -->
+        <div id="carrinho-vazio" class="aviso-vazio" style="display: none;">
+            <p>Seu carrinho está vazio no momento.</p>
+            <a href="index.html" class="btn-secundario">Voltar para a loja</a>
+        </div>
+
+        <!-- Lista de produtos selecionados -->
+        <section id="lista-carrinho" class="lista-carrinho"></section>
+
+        <!-- Resumo e botões finais -->
+        <section id="resumo-carrinho" class="resumo-carrinho">
+            <div class="total-box">
+                <span>Valor Total da Compra:</span>
+                <strong id="valor-total">R$ 0,00</strong>
+            </div>
+
+            <div class="acoes-carrinho">
+                <a href="index.html" class="btn-secundario">Continuar comprando</a>
+                <button onclick="finalizarCompra()" class="btn-primario">Finalizar compra</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p><strong>KaTech! Informática LTDA</strong> — Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaTech! | Hardware e Tecnologia</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho com Barra de Busca -->
+    <header class="topo">
+        <div class="container header-conteudo">
+            <a href="index.html" class="logo">Ka<span>Tech!</span></a>
+
+            <div class="barra-busca">
+                <input 
+                    type="text" 
+                    id="campo-busca" 
+                    placeholder="Busque por placa de vídeo, ryzen, mouse..." 
+                    oninput="filtrarProdutos()"
+                >
+                <button type="button" onclick="filtrarProdutos()">🔍</button>
+            </div>
+            
+            <nav class="menu">
+                <a href="index.html">Início</a>
+                <a href="carrinho.html" class="btn-carrinho-nav">
+                    🛒 Carrinho (<span id="contador-carrinho">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Promocional -->
+    <section class="banner">
+        <div class="container">
+            <h1>🔥 OFERTAS NINJA DE HARDWARE</h1>
+            <p>Monte seu PC Gamer com até 30% de desconto à vista no PIX!</p>
+        </div>
+    </section>
+
+    <!-- Catálogo de Produtos -->
+    <main class="container" id="ofertas">
+        <div class="cabecalho-vitrine">
+            <h2 class="titulo-secao">Destaques da Semana</h2>
+            
+            <div class="filtros-categoria">
+                <button class="btn-filtro ativo" onclick="selecionarCategoria('todos', this)">Todos</button>
+                <button class="btn-filtro" onclick="selecionarCategoria('hardware', this)">Hardware</button>
+                <button class="btn-filtro" onclick="selecionarCategoria('perifericos', this)">Periféricos</button>
+            </div>
+        </div>
+
+        <p id="mensagem-sem-resultados" class="aviso-busca" style="display: none;">
+            Nenhum produto encontrado para a sua busca.
+        </p>
+
+        <section class="grade-produtos">
+            <!-- Produto 1 -->
+            <article class="card-produto" data-categoria="hardware">
+                <img src="images/produto01.jpg" alt="Placa de Vídeo RTX 4060">
+                <h3>Placa de Vídeo RTX 4060 8GB</h3>
+                <p class="descricao">GDDR6, Ray Tracing, DLSS 3, Dual Fan.</p>
+                <span class="preco">R$ 1.899,90</span>
+                <button onclick="adicionarAoCarrinho(1, 'Placa de Vídeo RTX 4060 8GB', 1899.90, 'images/produto01.jpg')">
+                    Adicionar ao carrinho
+                </button>
+            </article>
+
+            <!-- Produto 2 -->
+            <article class="card-produto" data-categoria="hardware">
+                <img src="images/produto02.jpg" alt="Processador Ryzen 7 5700X">
+                <h3>Processador AMD Ryzen 7 5700X</h3>
+                <p class="descricao">8 Núcleos, 16 Threads, Cache 36MB, AM4.</p>
+                <span class="preco">R$ 1.149,90</span>
+                <button onclick="adicionarAoCarrinho(2, 'Processador AMD Ryzen 7 5700X', 1149.90, 'images/produto02.jpg')">
+                    Adicionar ao carrinho
+                </button>
+            </article>
+
+            <!-- Produto 3 -->
+            <article class="card-produto" data-categoria="hardware">
+                <img src="images/produto03.jpg" alt="SSD NVMe 1TB">
+                <h3>SSD Kingston NV2 1TB NVMe</h3>
+                <p class="descricao">Leitura 3500MB/s e Gravação 2100MB/s, M.2.</p>
+                <span class="preco">R$ 389,90</span>
+                <button onclick="adicionarAoCarrinho(3, 'SSD Kingston NV2 1TB NVMe', 389.90, 'images/produto03.jpg')">
+                    Adicionar ao carrinho
+                </button>
+            </article>
+
+            <!-- Produto 4 -->
+            <article class="card-produto" data-categoria="perifericos">
+                <img src="images/produto04.jpg" alt="Monitor Gamer 24 Polegadas">
+                <h3>Monitor Gamer 24" Full HD 165Hz</h3>
+                <p class="descricao">Painel IPS, 1ms, FreeSync, HDMI/DisplayPort.</p>
+                <span class="preco">R$ 849,90</span>
+                <button onclick="adicionarAoCarrinho(4, 'Monitor Gamer 24 Full HD 165Hz', 849.90, 'images/produto04.jpg')">
+                    Adicionar ao carrinho
+                </button>
+            </article>
+
+            <!-- Produto 5 -->
+            <article class="card-produto" data-categoria="perifericos">
+                <img src="images/produto05.jpg" alt="Teclado Mecânico RGB">
+                <h3>Teclado Mecânico Gamer RGB</h3>
+                <p class="descricao">Switch Red, Layout ABNT2, Cabo Removível.</p>
+                <span class="preco">R$ 229,90</span>
+                <button onclick="adicionarAoCarrinho(5, 'Teclado Mecânico Gamer RGB', 229.90, 'images/produto05.jpg')">
+                    Adicionar ao carrinho
+                </button>
+            </article>
+
+            <!-- Produto 6 -->
+            <article class="card-produto" data-categoria="perifericos">
+                <img src="images/produto06.jpg" alt="Mouse Gamer Sem Fio">
+                <h3>Mouse Gamer Sem Fio 16000 DPI</h3>
+                <p class="descricao">Sensor Óptico, 6 Botões Programáveis, Ultraleve.</p>
+                <span class="preco">R$ 179,90</span>
+                <button onclick="adicionarAoCarrinho(6, 'Mouse Gamer Sem Fio 16000 DPI', 179.90, 'images/produto06.jpg')">
+                    Adicionar ao carrinho
+                </button>
+            </article>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="container">
+            <p><strong>KaTech! Informática LTDA</strong> — CNPJ: 00.000.000/0001-00</p>
+            <p>Atendimento: segunda a sexta, das 08h às 18h | Projeto Acadêmico E-commerce</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
