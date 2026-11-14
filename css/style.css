@@ -36,18 +36,18 @@ body {
 .barra-aviso {
     background-color: var(--azul-escuro);
     color: var(--branco);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 700;
     text-align: center;
-    padding: 7px 0;
-    letter-spacing: 0.5px;
+    padding: 8px 0;
+    letter-spacing: 0.6px;
 }
 
 /* Cabeçalho */
 .topo {
     background-color: var(--azul-header);
     padding: 16px 0;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -58,7 +58,7 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 16px;
 }
 
 .logo {
@@ -81,7 +81,7 @@ body {
     background-color: var(--branco);
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .barra-busca input {
@@ -90,6 +90,7 @@ body {
     padding: 11px 15px;
     font-size: 0.95rem;
     outline: none;
+    color: var(--texto);
 }
 
 .barra-busca button {
@@ -98,7 +99,9 @@ body {
     border: none;
     padding: 0 18px;
     cursor: pointer;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.2s;
 }
 
@@ -110,13 +113,14 @@ body {
 .menu {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 22px;
 }
 
 .link-menu {
     color: var(--branco);
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.95rem;
     transition: opacity 0.2s;
 }
 
@@ -129,9 +133,10 @@ body {
     color: var(--branco);
     text-decoration: none;
     font-weight: 700;
+    font-size: 0.95rem;
     padding: 9px 16px;
     border-radius: 6px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
     transition: background-color 0.2s;
@@ -144,17 +149,18 @@ body {
 .badge-nav {
     background-color: var(--branco);
     color: var(--laranja);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 800;
-    padding: 2px 7px;
+    padding: 2px 8px;
     border-radius: 12px;
+    line-height: 1.2;
 }
 
 /* Banner */
 .banner {
     background: linear-gradient(135deg, var(--azul-escuro) 0%, #003B73 60%, var(--azul-header) 100%);
     color: var(--branco);
-    padding: 45px 0;
+    padding: 46px 0;
     text-align: center;
     border-bottom: 5px solid var(--laranja);
 }
@@ -163,23 +169,24 @@ body {
     display: inline-block;
     background-color: var(--laranja);
     color: var(--branco);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 800;
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     letter-spacing: 0.8px;
 }
 
 .banner h1 {
-    font-size: 2.1rem;
+    font-size: 2.05rem;
     margin-bottom: 10px;
+    letter-spacing: -0.5px;
 }
 
 .banner p {
     font-size: 1.05rem;
     opacity: 0.9;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
 }
 
 .btn-banner {
@@ -188,8 +195,10 @@ body {
     color: var(--branco);
     text-decoration: none;
     font-weight: 800;
-    padding: 12px 28px;
+    font-size: 0.92rem;
+    padding: 13px 30px;
     border-radius: 6px;
+    letter-spacing: 0.4px;
     transition: transform 0.2s, background-color 0.2s;
 }
 
@@ -212,7 +221,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-    margin: 32px 0 22px;
+    margin: 34px 0 22px;
 }
 
 .cabecalho-vitrine .titulo-secao {
@@ -232,6 +241,7 @@ body {
     padding: 8px 18px;
     border-radius: 20px;
     font-weight: 600;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -273,8 +283,8 @@ body {
 }
 
 .card-produto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-topo {
@@ -289,14 +299,19 @@ body {
     color: var(--branco);
     font-size: 0.78rem;
     font-weight: 800;
-    padding: 3px 8px;
+    padding: 3px 9px;
     border-radius: 4px;
 }
 
 .avaliacao {
-    color: #FFB800;
+    color: #F59E0B;
     font-size: 0.85rem;
     font-weight: 600;
+}
+
+.avaliacao span {
+    color: var(--cinza-texto);
+    font-weight: 500;
 }
 
 .card-produto img {
@@ -326,7 +341,7 @@ body {
 }
 
 .preco-antigo {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     color: #888888;
     text-decoration: line-through;
 }
@@ -345,23 +360,26 @@ body {
     margin-top: 2px;
 }
 
-.card-produto button,
-.btn-primario {
+.btn-comprar-card {
     background-color: var(--laranja);
     color: var(--branco);
     border: none;
-    padding: 13px;
+    padding: 13px 16px;
     border-radius: 6px;
     font-weight: 800;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     text-transform: uppercase;
+    letter-spacing: 0.3px;
     cursor: pointer;
-    transition: background-color 0.2s;
     width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s;
 }
 
-.card-produto button:hover,
-.btn-primario:hover {
+.btn-comprar-card:hover {
     background-color: var(--laranja-escuro);
 }
 
@@ -371,24 +389,30 @@ body {
     margin-bottom: 50px;
 }
 
-.aviso-vazio {
+.aviso-vazio,
+.aviso-sucesso {
     background: var(--branco);
-    padding: 50px 20px;
+    padding: 55px 24px;
     text-align: center;
     border-radius: 8px;
     border: 1px solid var(--borda);
 }
 
-.icone-vazio {
-    font-size: 3rem;
-    margin-bottom: 12px;
+.icone-vazio,
+.icone-sucesso {
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: center;
 }
 
-.aviso-vazio h2 {
+.aviso-vazio h2,
+.aviso-sucesso h2 {
     margin-bottom: 8px;
+    font-size: 1.35rem;
 }
 
-.aviso-vazio p {
+.aviso-vazio p,
+.aviso-sucesso p {
     color: var(--cinza-texto);
     margin-bottom: 24px;
 }
@@ -398,10 +422,16 @@ body {
     background-color: var(--laranja);
     color: var(--branco);
     text-decoration: none;
-    padding: 12px 26px;
+    padding: 13px 28px;
     border-radius: 6px;
-    font-weight: 700;
+    font-weight: 800;
+    font-size: 0.9rem;
     text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+.btn-primario-link:hover {
+    background-color: var(--laranja-escuro);
 }
 
 .carrinho-layout {
@@ -420,27 +450,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15px;
+    gap: 16px;
 }
 
 .item-info {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 16px;
     flex: 2;
 }
 
 .item-info img {
-    width: 75px;
-    height: 75px;
+    width: 78px;
+    height: 78px;
     object-fit: contain;
     border: 1px solid var(--borda);
     border-radius: 6px;
-    padding: 4px;
+    padding: 6px;
+    background-color: var(--branco);
 }
 
 .item-info h3 {
-    font-size: 1rem;
+    font-size: 1.02rem;
     margin-bottom: 4px;
 }
 
@@ -450,20 +481,23 @@ body {
 }
 
 .controles-qtd {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: var(--fundo);
 }
 
 .controles-qtd button {
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--borda);
-    background: var(--fundo);
-    font-weight: bold;
-    font-size: 1rem;
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: transparent;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--texto);
     cursor: pointer;
-    border-radius: 4px;
     transition: background-color 0.2s;
 }
 
@@ -471,9 +505,19 @@ body {
     background-color: #E2E4E7;
 }
 
+.controles-qtd span {
+    min-width: 34px;
+    text-align: center;
+    background-color: var(--branco);
+    line-height: 34px;
+    font-size: 0.95rem;
+    border-left: 1px solid var(--borda);
+    border-right: 1px solid var(--borda);
+}
+
 .subtotal-item {
     text-align: right;
-    min-width: 110px;
+    min-width: 115px;
 }
 
 .subtotal-item p {
@@ -483,22 +527,28 @@ body {
 
 .subtotal-item strong {
     color: var(--texto);
-    font-size: 1.05rem;
+    font-size: 1.08rem;
 }
 
 .btn-remover {
-    background-color: #D93025;
-    color: var(--branco);
-    border: none;
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
     padding: 8px 12px;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    transition: opacity 0.2s;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
 }
 
 .btn-remover:hover {
-    opacity: 0.88;
+    background-color: #DC2626;
+    color: var(--branco);
+    border-color: #DC2626;
 }
 
 /* Resumo Lateral do Carrinho */
@@ -550,6 +600,24 @@ body {
     gap: 10px;
 }
 
+.btn-primario {
+    background-color: var(--laranja);
+    color: var(--branco);
+    border: none;
+    padding: 13px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.92rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.btn-primario:hover {
+    background-color: var(--laranja-escuro);
+}
+
 .btn-secundario {
     display: block;
     background-color: var(--azul-header);
@@ -558,12 +626,60 @@ body {
     padding: 12px;
     border-radius: 6px;
     font-weight: 700;
+    font-size: 0.92rem;
     text-align: center;
     transition: opacity 0.2s;
 }
 
 .btn-secundario:hover {
     opacity: 0.9;
+}
+
+/* Notificação Toast */
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border-left: 5px solid var(--laranja);
+    padding: 14px 18px;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.92rem;
+    animation: entrarToast 0.25s ease-out;
+}
+
+.toast a {
+    color: var(--laranja);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.toast a:hover {
+    text-decoration: underline;
+}
+
+@keyframes entrarToast {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Rodapé */
@@ -631,5 +747,11 @@ body {
 
     .rodape-info {
         text-align: center;
+    }
+
+    .toast-container {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
     }
 }

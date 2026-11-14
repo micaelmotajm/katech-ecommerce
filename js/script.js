@@ -1,12 +1,52 @@
-// Recupera o carrinho salvo no navegador ou inicia uma lista vazia
-function obterCarrinho() {
-    return JSON.parse(localStorage.getItem('carrinhoKaTech')) || [];
+let urlJaLida = false;
+
+// Lê o carrinho passado na URL (#cart=...) apenas uma vez ao abrir a página
+function lerCarrinhoDaURL() {
+    if (urlJaLida) return null;
+    urlJaLida = true;
+
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#cart=')) {
+        try {
+            const dados = decodeURIComponent(hash.substring(6));
+            const itens = JSON.parse(dados);
+            if (Array.isArray(itens)) {
+                localStorage.setItem('carrinhoKaTech', JSON.stringify(itens));
+                return itens;
+            }
+        } catch (e) {}
+    }
+    return null;
 }
 
-// Salva o carrinho atualizado no LocalStorage e atualiza o contador do topo
+// Recupera o carrinho salvo no LocalStorage
+function obterCarrinho() {
+    const daUrl = lerCarrinhoDaURL();
+    if (daUrl !== null) {
+        return daUrl;
+    }
+
+    try {
+        return JSON.parse(localStorage.getItem('carrinhoKaTech')) || [];
+    } catch (e) {
+        return [];
+    }
+}
+
+// Mantém os links entre index.html e carrinho.html sincronizados com o carrinho atual
+function sincronizarLinks(carrinho) {
+    const hashCart = '#cart=' + encodeURIComponent(JSON.stringify(carrinho));
+    document.querySelectorAll('a[href^="index.html"], a[href^="carrinho.html"]').forEach(link => {
+        const baseHref = link.getAttribute('href').split('#')[0];
+        link.setAttribute('href', baseHref + hashCart);
+    });
+}
+
+// Salva o carrinho atualizado no LocalStorage e atualiza a interface
 function salvarCarrinho(carrinho) {
     localStorage.setItem('carrinhoKaTech', JSON.stringify(carrinho));
     atualizarContador();
+    sincronizarLinks(carrinho);
 }
 
 // Formata números para o padrão brasileiro (R$ 0,00)
@@ -22,6 +62,48 @@ function atualizarContador() {
     if (badge) {
         badge.textContent = totalItens;
     }
+}
+
+// Atualiza a contagem de produtos nos botões Todos, Hardware e Periféricos
+function atualizarContadoresCategorias() {
+    const cards = document.querySelectorAll('.card-produto');
+    if (!cards.length) return;
+
+    const total = cards.length;
+    let hardware = 0;
+    let perifericos = 0;
+
+    cards.forEach(card => {
+        if (card.dataset.categoria === 'hardware') hardware++;
+        if (card.dataset.categoria === 'perifericos') perifericos++;
+    });
+
+    document.querySelectorAll('.btn-filtro').forEach(btn => {
+        const acao = btn.getAttribute('onclick') || '';
+        if (acao.includes("'todos'")) btn.textContent = `Todos (${total})`;
+        if (acao.includes("'hardware'")) btn.textContent = `Hardware (${hardware})`;
+        if (acao.includes("'perifericos'")) btn.textContent = `Periféricos (${perifericos})`;
+    });
+}
+
+// Exibe notificação flutuante no canto da tela
+function mostrarNotificacao(mensagem, mostrarLinkCarrinho = false) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `
+        <span>${mensagem}</span>
+        ${mostrarLinkCarrinho ? '<a href="carrinho.html">Ver carrinho →</a>' : ''}
+    `;
+
+    container.appendChild(toast);
+    sincronizarLinks(obterCarrinho());
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3200);
 }
 
 // Adicionar produto ao carrinho (usado na index.html)
@@ -42,7 +124,7 @@ function adicionarAoCarrinho(id, nome, preco, imagem) {
     }
 
     salvarCarrinho(carrinho);
-    alert(`"${nome}" foi adicionado ao seu carrinho!`);
+    mostrarNotificacao(`<strong>${nome}</strong> adicionado ao carrinho.`, true);
 }
 
 // Renderizar os itens na página carrinho.html
@@ -53,13 +135,11 @@ function renderizarCarrinho() {
     const totalEl = document.getElementById('valor-total');
     const qtdResumoEl = document.getElementById('qtd-itens-resumo');
 
-    // Só executa se estiver na página carrinho.html
     if (!listaEl) return;
 
     const carrinho = obterCarrinho();
     listaEl.innerHTML = '';
 
-    // Exibe mensagem se o carrinho estiver vazio
     if (carrinho.length === 0) {
         vazioEl.style.display = 'block';
         conteudoEl.style.display = 'none';
@@ -99,7 +179,15 @@ function renderizarCarrinho() {
                 <strong>${formatarMoeda(subtotal)}</strong>
             </div>
 
-            <button class="btn-remover" onclick="removerProduto(${item.id})">Remover</button>
+            <button class="btn-remover" onclick="removerProduto(${item.id})" aria-label="Remover produto">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+                    <path d="M10 11v6"></path>
+                    <path d="M14 11v6"></path>
+                </svg>
+                <span>Remover</span>
+            </button>
         `;
         listaEl.appendChild(itemDiv);
     });
@@ -131,14 +219,20 @@ function removerProduto(id) {
     carrinho = carrinho.filter(produto => produto.id !== id);
     salvarCarrinho(carrinho);
     renderizarCarrinho();
+    mostrarNotificacao('Item removido do carrinho.');
 }
 
-// Finalizar compra
+// Finalizar compra exibindo tela de confirmação e limpando os dados
 function finalizarCompra() {
-    alert('Pedido finalizado com sucesso! Obrigado por comprar na KaTech!');
-    localStorage.removeItem('carrinhoKaTech');
-    atualizarContador();
-    renderizarCarrinho();
+    salvarCarrinho([]);
+
+    const conteudoEl = document.getElementById('carrinho-conteudo');
+    const vazioEl = document.getElementById('carrinho-vazio');
+    const finalizadoEl = document.getElementById('pedido-finalizado');
+
+    if (conteudoEl) conteudoEl.style.display = 'none';
+    if (vazioEl) vazioEl.style.display = 'none';
+    if (finalizadoEl) finalizadoEl.style.display = 'block';
 }
 
 // Filtro por categoria e barra de busca (usado na index.html)
@@ -186,7 +280,12 @@ function filtrarProdutos() {
 }
 
 // Executa ao carregar qualquer uma das páginas
-document.addEventListener('DOMContentLoaded', () => {
+function inicializarLoja() {
+    const carrinho = obterCarrinho();
     atualizarContador();
+    atualizarContadoresCategorias();
+    sincronizarLinks(carrinho);
     renderizarCarrinho();
-});
+}
+
+document.addEventListener('DOMContentLoaded', inicializarLoja);

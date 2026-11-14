@@ -10,7 +10,7 @@
     <!-- Faixa Superior -->
     <div class="barra-aviso">
         <div class="container">
-            🔒 COMPRA 100% SEGURA | ENVIO IMEDIATO APÓS A CONFIRMAÇÃO
+            COMPRA 100% SEGURA &nbsp;|&nbsp; ENVIO IMEDIATO APÓS A CONFIRMAÇÃO
         </div>
     </div>
 
@@ -21,7 +21,13 @@
             <nav class="menu">
                 <a href="index.html" class="link-menu">Início</a>
                 <a href="carrinho.html" class="btn-carrinho-nav">
-                    🛒 Carrinho <span class="badge-nav" id="contador-carrinho">0</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Carrinho</span>
+                    <span class="badge-nav" id="contador-carrinho">0</span>
                 </a>
             </nav>
         </div>
@@ -33,10 +39,29 @@
 
         <!-- Mensagem exibida quando o carrinho estiver vazio -->
         <div id="carrinho-vazio" class="aviso-vazio" style="display: none;">
-            <div class="icone-vazio">🛒</div>
+            <div class="icone-vazio">
+                <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#9AA3AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+            </div>
             <h2>Seu carrinho está vazio no momento</h2>
             <p>Explore nossas ofertas de hardware e periféricos para montar seu setup.</p>
             <a href="index.html" class="btn-primario-link">Continuar comprando</a>
+        </div>
+
+        <!-- Tela de Confirmação ao Finalizar Compra -->
+        <div id="pedido-finalizado" class="aviso-sucesso" style="display: none;">
+            <div class="icone-sucesso">
+                <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#1F9D55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h2>Pedido finalizado com sucesso!</h2>
+            <p>Obrigado por comprar na <strong>KaTech!</strong> Seu pedido já está sendo separado para envio.</p>
+            <a href="index.html" class="btn-primario-link">Voltar para a loja</a>
         </div>
 
         <!-- Grade em 2 colunas: Produtos à esquerda e Resumo à direita -->
@@ -69,6 +94,9 @@
         </div>
     </main>
 
+    <!-- Notificação Flutuante -->
+    <div id="toast-container" class="toast-container"></div>
+
     <!-- Rodapé -->
     <footer class="rodape">
         <div class="container rodape-conteudo">
@@ -77,7 +105,8 @@
                 <p>Sua loja especializada em hardware e periféricos de alta performance.</p>
             </div>
             <div class="rodape-info">
-                <p><strong>KaTech! Informática LTDA</strong> — Todos os direitos reservados.</p>
+                <p><strong>KaTech! Informática LTDA</strong></p>
+                <p>Atendimento: segunda a sexta, das 08h às 18h</p>
             </div>
         </div>
     </footer>

@@ -10,7 +10,7 @@
     <!-- Faixa Superior Promocional -->
     <div class="barra-aviso">
         <div class="container">
-            ⚡ ENTREGA NINJA PARA TODO O BRASIL | ATÉ 15% OFF NO PIX
+            ENTREGA EXPRESSA PARA TODO O BRASIL &nbsp;|&nbsp; ATÉ 15% DE DESCONTO NO PIX
         </div>
     </div>
 
@@ -23,17 +23,28 @@
                 <input 
                     type="text" 
                     id="campo-busca" 
-                    placeholder="Busque por placa de vídeo, ryzen, monitor, mouse..." 
+                    placeholder="Busque por placa de vídeo, processador, monitor, mouse..." 
                     oninput="filtrarProdutos()"
                 >
-                <button type="button" onclick="filtrarProdutos()" aria-label="Buscar">🔍</button>
+                <button type="button" onclick="filtrarProdutos()" aria-label="Buscar">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
             </div>
             
             <nav class="menu">
                 <a href="index.html" class="link-menu">Início</a>
                 <a href="#ofertas" class="link-menu">Ofertas</a>
                 <a href="carrinho.html" class="btn-carrinho-nav">
-                    🛒 Carrinho <span class="badge-nav" id="contador-carrinho">0</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Carrinho</span>
+                    <span class="badge-nav" id="contador-carrinho">0</span>
                 </a>
             </nav>
         </div>
@@ -43,8 +54,8 @@
     <section class="banner">
         <div class="container banner-conteudo">
             <span class="tag-banner">SEMANA DO HARDWARE</span>
-            <h1>🔥 MONTE SEU SETUP GAMER COM PREÇO DE FÁBRICA</h1>
-            <p>Placas de vídeo, processadores e periféricos com envio imediato e desconto à vista.</p>
+            <h1>MONTE SEU SETUP GAMER COM PREÇO DE FÁBRICA</h1>
+            <p>Placas de vídeo, processadores e periféricos com envio imediato e condições especiais à vista.</p>
             <a href="#ofertas" class="btn-banner">VER OFERTAS AGORA</a>
         </div>
     </section>
@@ -70,7 +81,7 @@
             <article class="card-produto" data-categoria="hardware">
                 <div class="card-topo">
                     <span class="badge-desconto">-24%</span>
-                    <span class="avaliacao">★★★★★ (48)</span>
+                    <span class="avaliacao">★★★★★ <span>(48)</span></span>
                 </div>
                 <img src="images/produto01.jpg" alt="Placa de Vídeo RTX 4060">
                 <h3>Placa de Vídeo RTX 4060 8GB</h3>
@@ -80,8 +91,13 @@
                     <span class="preco">R$ 1.899,90</span>
                     <span class="texto-pix">À vista no PIX com desconto</span>
                 </div>
-                <button onclick="adicionarAoCarrinho(1, 'Placa de Vídeo RTX 4060 8GB', 1899.90, 'images/produto01.jpg')">
-                    🛒 Adicionar ao carrinho
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(1, 'Placa de Vídeo RTX 4060 8GB', 1899.90, 'images/produto01.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
                 </button>
             </article>
 
@@ -89,7 +105,7 @@
             <article class="card-produto" data-categoria="hardware">
                 <div class="card-topo">
                     <span class="badge-desconto">-18%</span>
-                    <span class="avaliacao">★★★★★ (92)</span>
+                    <span class="avaliacao">★★★★★ <span>(92)</span></span>
                 </div>
                 <img src="images/produto02.jpg" alt="Processador Ryzen 7 5700X">
                 <h3>Processador AMD Ryzen 7 5700X</h3>
@@ -99,8 +115,13 @@
                     <span class="preco">R$ 1.149,90</span>
                     <span class="texto-pix">À vista no PIX com desconto</span>
                 </div>
-                <button onclick="adicionarAoCarrinho(2, 'Processador AMD Ryzen 7 5700X', 1149.90, 'images/produto02.jpg')">
-                    🛒 Adicionar ao carrinho
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(2, 'Processador AMD Ryzen 7 5700X', 1149.90, 'images/produto02.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
                 </button>
             </article>
 
@@ -108,7 +129,7 @@
             <article class="card-produto" data-categoria="hardware">
                 <div class="card-topo">
                     <span class="badge-desconto">-22%</span>
-                    <span class="avaliacao">★★★★☆ (65)</span>
+                    <span class="avaliacao">★★★★☆ <span>(65)</span></span>
                 </div>
                 <img src="images/produto03.jpg" alt="SSD NVMe 1TB">
                 <h3>SSD Kingston NV2 1TB NVMe</h3>
@@ -118,8 +139,13 @@
                     <span class="preco">R$ 389,90</span>
                     <span class="texto-pix">À vista no PIX com desconto</span>
                 </div>
-                <button onclick="adicionarAoCarrinho(3, 'SSD Kingston NV2 1TB NVMe', 389.90, 'images/produto03.jpg')">
-                    🛒 Adicionar ao carrinho
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(3, 'SSD Kingston NV2 1TB NVMe', 389.90, 'images/produto03.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
                 </button>
             </article>
 
@@ -127,7 +153,7 @@
             <article class="card-produto" data-categoria="perifericos">
                 <div class="card-topo">
                     <span class="badge-desconto">-15%</span>
-                    <span class="avaliacao">★★★★★ (37)</span>
+                    <span class="avaliacao">★★★★★ <span>(37)</span></span>
                 </div>
                 <img src="images/produto04.jpg" alt="Monitor Gamer 24 Polegadas">
                 <h3>Monitor Gamer 24" Full HD 165Hz</h3>
@@ -137,8 +163,13 @@
                     <span class="preco">R$ 849,90</span>
                     <span class="texto-pix">À vista no PIX com desconto</span>
                 </div>
-                <button onclick="adicionarAoCarrinho(4, 'Monitor Gamer 24 Full HD 165Hz', 849.90, 'images/produto04.jpg')">
-                    🛒 Adicionar ao carrinho
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(4, 'Monitor Gamer 24 Full HD 165Hz', 849.90, 'images/produto04.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
                 </button>
             </article>
 
@@ -146,7 +177,7 @@
             <article class="card-produto" data-categoria="perifericos">
                 <div class="card-topo">
                     <span class="badge-desconto">-23%</span>
-                    <span class="avaliacao">★★★★★ (114)</span>
+                    <span class="avaliacao">★★★★★ <span>(114)</span></span>
                 </div>
                 <img src="images/produto05.jpg" alt="Teclado Mecânico RGB">
                 <h3>Teclado Mecânico Gamer RGB</h3>
@@ -156,8 +187,13 @@
                     <span class="preco">R$ 229,90</span>
                     <span class="texto-pix">À vista no PIX com desconto</span>
                 </div>
-                <button onclick="adicionarAoCarrinho(5, 'Teclado Mecânico Gamer RGB', 229.90, 'images/produto05.jpg')">
-                    🛒 Adicionar ao carrinho
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(5, 'Teclado Mecânico Gamer RGB', 229.90, 'images/produto05.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
                 </button>
             </article>
 
@@ -165,7 +201,7 @@
             <article class="card-produto" data-categoria="perifericos">
                 <div class="card-topo">
                     <span class="badge-desconto">-28%</span>
-                    <span class="avaliacao">★★★★☆ (53)</span>
+                    <span class="avaliacao">★★★★☆ <span>(53)</span></span>
                 </div>
                 <img src="images/produto06.jpg" alt="Mouse Gamer Sem Fio">
                 <h3>Mouse Gamer Sem Fio 16000 DPI</h3>
@@ -175,12 +211,260 @@
                     <span class="preco">R$ 179,90</span>
                     <span class="texto-pix">À vista no PIX com desconto</span>
                 </div>
-                <button onclick="adicionarAoCarrinho(6, 'Mouse Gamer Sem Fio 16000 DPI', 179.90, 'images/produto06.jpg')">
-                    🛒 Adicionar ao carrinho
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(6, 'Mouse Gamer Sem Fio 16000 DPI', 179.90, 'images/produto06.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 7 -->
+            <article class="card-produto" data-categoria="hardware">
+                <div class="card-topo">
+                    <span class="badge-desconto">-27%</span>
+                    <span class="avaliacao">★★★★★ <span>(81)</span></span>
+                </div>
+                <img src="images/produto07.jpg" alt="Memória RAM DDR4 16GB">
+                <h3>Memória RAM DDR4 16GB (2x8GB) 3200MHz</h3>
+                <p class="descricao">Dual Channel, Dissipador em Alumínio, Latência CL16, XMP 2.0.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 399,90</span>
+                    <span class="preco">R$ 289,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(7, 'Memória RAM DDR4 16GB 3200MHz', 289.90, 'images/produto07.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 8 -->
+            <article class="card-produto" data-categoria="hardware">
+                <div class="card-topo">
+                    <span class="badge-desconto">-20%</span>
+                    <span class="avaliacao">★★★★★ <span>(74)</span></span>
+                </div>
+                <img src="images/produto08.jpg" alt="Placa-Mãe B550M">
+                <h3>Placa-Mãe B550M AORUS Elite AM4</h3>
+                <p class="descricao">Micro-ATX, DDR4 até 4733MHz, 2x M.2 NVMe, PCIe 4.0.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 899,90</span>
+                    <span class="preco">R$ 719,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(8, 'Placa-Mãe B550M AORUS Elite AM4', 719.90, 'images/produto08.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 9 -->
+            <article class="card-produto" data-categoria="hardware">
+                <div class="card-topo">
+                    <span class="badge-desconto">-22%</span>
+                    <span class="avaliacao">★★★★★ <span>(109)</span></span>
+                </div>
+                <img src="images/produto09.jpg" alt="Fonte Gamer 650W">
+                <h3>Fonte Gamer 650W 80 Plus Bronze</h3>
+                <p class="descricao">PFC Ativo, Cabos Flat Pretos, Ventoinha Silenciosa 120mm.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 449,90</span>
+                    <span class="preco">R$ 349,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(9, 'Fonte Gamer 650W 80 Plus Bronze', 349.90, 'images/produto09.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 10 -->
+            <article class="card-produto" data-categoria="hardware">
+                <div class="card-topo">
+                    <span class="badge-desconto">-25%</span>
+                    <span class="avaliacao">★★★★☆ <span>(41)</span></span>
+                </div>
+                <img src="images/produto10.jpg" alt="Water Cooler 240mm ARGB">
+                <h3>Water Cooler 240mm ARGB Preto</h3>
+                <p class="descricao">Radiador em Alumínio, 2 Fans PWM, Compatível Intel e AMD.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 479,90</span>
+                    <span class="preco">R$ 359,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+               <button class="btn-comprar-card" onclick="adicionarAoCarrinho(10, 'Water Cooler 240mm ARGB Preto', 359.90, 'images/produto10.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 11 -->
+            <article class="card-produto" data-categoria="hardware">
+                <div class="card-topo">
+                    <span class="badge-desconto">-26%</span>
+                    <span class="avaliacao">★★★★★ <span>(63)</span></span>
+                </div>
+                <img src="images/produto11.jpg" alt="Gabinete Gamer Mid Tower">
+                <h3>Gabinete Gamer Mid Tower Vidro</h3>
+                <p class="descricao">Lateral em Vidro Temperado, Frente Mesh, 3 Fans Inclusas.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 379,90</span>
+                    <span class="preco">R$ 279,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(11, 'Gabinete Gamer Mid Tower Vidro', 279.90, 'images/produto11.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 12 -->
+            <article class="card-produto" data-categoria="perifericos">
+                <div class="card-topo">
+                    <span class="badge-desconto">-27%</span>
+                    <span class="avaliacao">★★★★★ <span>(88)</span></span>
+                </div>
+                <img src="images/produto12.jpg" alt="Headset Gamer 7.1">
+                <h3>Headset Gamer 7.1 Surround USB</h3>
+                <p class="descricao">Drivers 50mm, Microfone com Cancelamento de Ruído, Espuma Memory.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 329,90</span>
+                    <span class="preco">R$ 239,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(12, 'Headset Gamer 7.1 Surround USB', 239.90, 'images/produto12.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 13 -->
+            <article class="card-produto" data-categoria="perifericos">
+                <div class="card-topo">
+                    <span class="badge-desconto">-33%</span>
+                    <span class="avaliacao">★★★★★ <span>(127)</span></span>
+                </div>
+                <img src="images/produto13.jpg" alt="Mousepad Gamer Extra Grande">
+                <h3>Mousepad Gamer Extra Grande 90x40cm</h3>
+                <p class="descricao">Superfície Speed, Bordas Costuradas, Base Emborrachada Antiderrapante.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 119,90</span>
+                    <span class="preco">R$ 79,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(13, 'Mousepad Gamer Extra Grande 90x40cm', 79.90, 'images/produto13.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 14 -->
+            <article class="card-produto" data-categoria="perifericos">
+                <div class="card-topo">
+                    <span class="badge-desconto">-26%</span>
+                    <span class="avaliacao">★★★★☆ <span>(34)</span></span>
+                </div>
+                <img src="images/produto14.jpg" alt="Webcam Full HD 1080p">
+                <h3>Webcam Full HD 1080p 60FPS</h3>
+                <p class="descricao">Foco Automático, Microfone Estéreo Integrado, Clipe Universal.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 299,90</span>
+                    <span class="preco">R$ 219,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(14, 'Webcam Full HD 1080p 60FPS', 219.90, 'images/produto14.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 15 -->
+            <article class="card-produto" data-categoria="perifericos">
+                <div class="card-topo">
+                    <span class="badge-desconto">-25%</span>
+                    <span class="avaliacao">★★★★★ <span>(59)</span></span>
+                </div>
+                <img src="images/produto15.jpg" alt="Microfone Condensador USB">
+                <h3>Microfone Condensador USB Cardióide</h3>
+                <p class="descricao">Tripé Articulado, Filtro Pop, Botão Mute Rápido, Plug and Play.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 349,90</span>
+                    <span class="preco">R$ 259,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(15, 'Microfone Condensador USB Cardióide', 259.90, 'images/produto15.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
+                </button>
+            </article>
+
+            <!-- Produto 16 -->
+            <article class="card-produto" data-categoria="perifericos">
+                <div class="card-topo">
+                    <span class="badge-desconto">-25%</span>
+                    <span class="avaliacao">★★★★★ <span>(46)</span></span>
+                </div>
+                <img src="images/produto16.jpg" alt="Cadeira Gamer Ergonômica">
+                <h3>Cadeira Gamer Ergonômica Reclinável</h3>
+                <p class="descricao">Almofadas Lombar e Cervical, Apoio de Braço 2D, Pistão Classe 4.</p>
+                <div class="bloco-precos">
+                    <span class="preco-antigo">R$ 1.199,90</span>
+                    <span class="preco">R$ 899,90</span>
+                    <span class="texto-pix">À vista no PIX com desconto</span>
+                </div>
+                <button class="btn-comprar-card" onclick="adicionarAoCarrinho(16, 'Cadeira Gamer Ergonômica Reclinável', 899.90, 'images/produto16.jpg')">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span>Adicionar ao carrinho</span>
                 </button>
             </article>
         </section>
     </main>
+
+    <!-- Notificação Flutuante -->
+    <div id="toast-container" class="toast-container"></div>
 
     <!-- Rodapé -->
     <footer class="rodape">
@@ -190,7 +474,7 @@
                 <p>Sua loja especializada em hardware e periféricos de alta performance.</p>
             </div>
             <div class="rodape-info">
-                <p><strong>KaTech! Informática LTDA</strong> — CNPJ: 00.000.000/0001-00</p>
+                <p><strong>KaTech! Informática LTDA</strong></p>
                 <p>Atendimento: segunda a sexta, das 08h às 18h</p>
             </div>
         </div>
