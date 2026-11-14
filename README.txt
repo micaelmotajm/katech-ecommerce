@@ -2,7 +2,7 @@ PROJETO: KaTech! - Loja Virtual de Hardware e Periféricos
 DISCIPLINA: Desenvolvimento Web (HTML5, CSS3 e JavaScript)
 
 INTEGRANTES DA DUPLA:
-1. Paulo Vitor
+1. Paulo Vitor Souza Dias
 2. José Micael Mota Chagas
 
 DESCRIÇÃO DO PROJETO:

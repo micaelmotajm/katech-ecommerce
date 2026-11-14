@@ -49,8 +49,9 @@ function adicionarAoCarrinho(id, nome, preco, imagem) {
 function renderizarCarrinho() {
     const listaEl = document.getElementById('lista-carrinho');
     const vazioEl = document.getElementById('carrinho-vazio');
-    const resumoEl = document.getElementById('resumo-carrinho');
+    const conteudoEl = document.getElementById('carrinho-conteudo');
     const totalEl = document.getElementById('valor-total');
+    const qtdResumoEl = document.getElementById('qtd-itens-resumo');
 
     // Só executa se estiver na página carrinho.html
     if (!listaEl) return;
@@ -61,18 +62,20 @@ function renderizarCarrinho() {
     // Exibe mensagem se o carrinho estiver vazio
     if (carrinho.length === 0) {
         vazioEl.style.display = 'block';
-        resumoEl.style.display = 'none';
+        conteudoEl.style.display = 'none';
         return;
     }
 
     vazioEl.style.display = 'none';
-    resumoEl.style.display = 'block';
+    conteudoEl.style.display = 'grid';
 
     let valorTotalCompra = 0;
+    let quantidadeTotalItens = 0;
 
     carrinho.forEach(item => {
         const subtotal = item.preco * item.quantidade;
         valorTotalCompra += subtotal;
+        quantidadeTotalItens += item.quantidade;
 
         const itemDiv = document.createElement('div');
         itemDiv.className = 'item-carrinho';
@@ -81,18 +84,18 @@ function renderizarCarrinho() {
                 <img src="${item.imagem}" alt="${item.nome}">
                 <div>
                     <h3>${item.nome}</h3>
-                    <p>Preço unitário: ${formatarMoeda(item.preco)}</p>
+                    <p>Unitário: ${formatarMoeda(item.preco)}</p>
                 </div>
             </div>
 
             <div class="controles-qtd">
-                <button onclick="alterarQuantidade(${item.id}, -1)">-</button>
+                <button onclick="alterarQuantidade(${item.id}, -1)" aria-label="Diminuir">-</button>
                 <span><strong>${item.quantidade}</strong></span>
-                <button onclick="alterarQuantidade(${item.id}, 1)">+</button>
+                <button onclick="alterarQuantidade(${item.id}, 1)" aria-label="Aumentar">+</button>
             </div>
 
-            <div>
-                <p>Subtotal:</p>
+            <div class="subtotal-item">
+                <p>Subtotal</p>
                 <strong>${formatarMoeda(subtotal)}</strong>
             </div>
 
@@ -102,6 +105,9 @@ function renderizarCarrinho() {
     });
 
     totalEl.textContent = formatarMoeda(valorTotalCompra);
+    if (qtdResumoEl) {
+        qtdResumoEl.textContent = quantidadeTotalItens;
+    }
 }
 
 // Alterar quantidade de um item (+1 ou -1)
