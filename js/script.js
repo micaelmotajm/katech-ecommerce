@@ -1,60 +1,35 @@
-let urlJaLida = false;
-
-// Lê o carrinho passado na URL (#cart=...) apenas uma vez ao abrir a página
-function lerCarrinhoDaURL() {
-    if (urlJaLida) return null;
-    urlJaLida = true;
-
-    const hash = window.location.hash;
-    if (hash && hash.startsWith('#cart=')) {
-        try {
-            const dados = decodeURIComponent(hash.substring(6));
-            const itens = JSON.parse(dados);
-            if (Array.isArray(itens)) {
-                localStorage.setItem('carrinhoKaTech', JSON.stringify(itens));
-                return itens;
-            }
-        } catch (e) {}
-    }
-    return null;
-}
-
-// Recupera o carrinho salvo no LocalStorage
+// Paulo Vitor de Souza Dias
+// LocalStorage -- persistencia 
 function obterCarrinho() {
-    const daUrl = lerCarrinhoDaURL();
-    if (daUrl !== null) {
-        return daUrl;
-    }
-
-    try {
-        return JSON.parse(localStorage.getItem('carrinhoKaTech')) || [];
-    } catch (e) {
-        return [];
-    }
+    return JSON.parse(localStorage.getItem('carrinhoKaTech')) || [];
 }
-
-// Mantém os links entre index.html e carrinho.html sincronizados com o carrinho atual
-function sincronizarLinks(carrinho) {
-    const hashCart = '#cart=' + encodeURIComponent(JSON.stringify(carrinho));
-    document.querySelectorAll('a[href^="index.html"], a[href^="carrinho.html"]').forEach(link => {
-        const baseHref = link.getAttribute('href').split('#')[0];
-        link.setAttribute('href', baseHref + hashCart);
-    });
-}
-
-// Salva o carrinho atualizado no LocalStorage e atualiza a interface
 function salvarCarrinho(carrinho) {
     localStorage.setItem('carrinhoKaTech', JSON.stringify(carrinho));
     atualizarContador();
-    sincronizarLinks(carrinho);
 }
-
-// Formata números para o padrão brasileiro (R$ 0,00)
+function adicionarAoCarrinho(id, nome, preco, imagem) {
+    const carrinho = obterCarrinho();
+    const itemExistente = carrinho.find(produto => produto.id === id);
+    if (itemExistente) {
+        itemExistente.quantidade += 1;
+    } else {
+        carrinho.push({
+            id: id,
+            nome: nome,
+            preco: preco,
+            imagem: imagem,
+            quantidade: 1
+        });
+    }
+    salvarCarrinho(carrinho);
+    mostrarNotificacao(`<strong>${nome}</strong> adicionado ao carrinho.`, true);
+}
 function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
-// Atualiza o número de itens ao lado do ícone do carrinho no menu
+//CONTADORES
+// Atualiza o Contador nas 2 paginas
 function atualizarContador() {
     const carrinho = obterCarrinho();
     const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
@@ -63,8 +38,6 @@ function atualizarContador() {
         badge.textContent = totalItens;
     }
 }
-
-// Atualiza a contagem de produtos nos botões Todos, Hardware e Periféricos
 function atualizarContadoresCategorias() {
     const cards = document.querySelectorAll('.card-produto');
     if (!cards.length) return;
@@ -86,7 +59,7 @@ function atualizarContadoresCategorias() {
     });
 }
 
-// Exibe notificação flutuante no canto da tela
+// Notificação
 function mostrarNotificacao(mensagem, mostrarLinkCarrinho = false) {
     const container = document.getElementById('toast-container');
     if (!container) return;
@@ -99,35 +72,14 @@ function mostrarNotificacao(mensagem, mostrarLinkCarrinho = false) {
     `;
 
     container.appendChild(toast);
-    sincronizarLinks(obterCarrinho());
 
     setTimeout(() => {
         toast.remove();
     }, 3200);
 }
 
-// Adicionar produto ao carrinho (usado na index.html)
-function adicionarAoCarrinho(id, nome, preco, imagem) {
-    const carrinho = obterCarrinho();
-    const itemExistente = carrinho.find(produto => produto.id === id);
-
-    if (itemExistente) {
-        itemExistente.quantidade += 1;
-    } else {
-        carrinho.push({
-            id: id,
-            nome: nome,
-            preco: preco,
-            imagem: imagem,
-            quantidade: 1
-        });
-    }
-
-    salvarCarrinho(carrinho);
-    mostrarNotificacao(`<strong>${nome}</strong> adicionado ao carrinho.`, true);
-}
-
 // Renderizar os itens na página carrinho.html
+// Como que renderiza??? --paulo
 function renderizarCarrinho() {
     const listaEl = document.getElementById('lista-carrinho');
     const vazioEl = document.getElementById('carrinho-vazio');
@@ -279,13 +231,10 @@ function filtrarProdutos() {
     }
 }
 
-// Executa ao carregar qualquer uma das páginas
+// Carrega as funções da pagina --Paulo
 function inicializarLoja() {
-    const carrinho = obterCarrinho();
     atualizarContador();
     atualizarContadoresCategorias();
-    sincronizarLinks(carrinho);
     renderizarCarrinho();
 }
-
-document.addEventListener('DOMContentLoaded', inicializarLoja);
+document.addEventListener('DOMContentLoaded', inicializarLoja);//-- coloquei um ponto e virgula aqui
